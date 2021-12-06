@@ -1,9 +1,12 @@
-import { Button } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import { useDispatch } from "react-redux"
+import { loginStyles } from "../../styles/views/loginStyles";
 import { startLogin } from "../state/actions/authAction";
 
 
 export const LoginView = () => {
+
+    const styles = loginStyles;
     
     const dispatch = useDispatch();
 
@@ -12,9 +15,20 @@ export const LoginView = () => {
     }
 
     return (
-        <div>
-            <h1>Login</h1>
-            <Button variant="contained" onClick={ handleLogin }>Login</Button>
-        </div>
+        <>
+            <Grid container spacing={0} sx={styles.loginContainer} justifyContent="center" alignItems="center">
+                <Grid container direction="column" justifyContent="center" alignItems="center" sx={styles.loginGrid}> 
+                    <Grid item xs={3} sx={{ bgcolor:"blue"}}>
+                            ejemplo1
+                    </Grid>
+                    <Grid item xs={3} sx={{ bgcolor:"red"}}>
+                        ejemplo2 
+                    </Grid>
+                </Grid>
+
+
+
+            </Grid>
+        </>
     )
 }
