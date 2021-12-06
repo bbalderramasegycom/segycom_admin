@@ -1,9 +1,16 @@
+import { Provider } from "react-redux";
+import { AppRoutes } from "./components/routes/AppRoutes";
+import { store } from './components/state/store/store';
+
+const init = () => {
+  return localStorage.getItem('user') || { logged: false };
+}
 
 function App() {
   return (
-    <>
-      <h1>Segycom admin</h1>
-    </>
+    <Provider store={ store }>
+      <AppRoutes />
+    </Provider>
   );
 }
 
