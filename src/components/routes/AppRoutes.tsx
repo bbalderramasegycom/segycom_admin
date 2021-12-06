@@ -7,6 +7,7 @@ import { LoginView } from "../views/LoginView"
 import { PrivateRoute } from "./PrivateRoute"
 import { PublicRoute } from "./PublicRoute"
 import { ErrorView } from '../views/ErrorView';
+import { CssBaseline } from '@mui/material';
 
 export const AppRoutes = () => {
 
@@ -21,6 +22,7 @@ export const AppRoutes = () => {
 
     return (
         <BrowserRouter>
+        <CssBaseline />
             <Routes>
                 <Route path="/login" element={
                     <PublicRoute>
