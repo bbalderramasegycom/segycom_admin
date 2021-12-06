@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import { useDispatch } from "react-redux"
 import { startLogin } from "../state/actions/authAction";
 
@@ -13,9 +14,7 @@ export const LoginView = () => {
     return (
         <div>
             <h1>Login</h1>
-            <button onClick={ handleLogin }>
-                Login
-            </button>
+            <Button variant="contained" onClick={ handleLogin }>Login</Button>
         </div>
     )
 }
