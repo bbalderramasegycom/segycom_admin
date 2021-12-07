@@ -16,17 +16,17 @@ export const themeConfig = createTheme ({
     //     }
     // },
     palette: {
-        // primary: {
-        //     light: '#c34339',
-        //     main: '#8c0712',
-        //     dark: '#590000',
-        //     contrastText: '#ffffff',
-        // },
-        // secondary: {
-        //     light: '#6b6b6b',
-        //     main: '#404040',
-        //     dark: '#1a1a1a',
-        //     contrastText: '#ffffff',
-        // },
+        primary: {
+            light: '#c34339',
+            main: '#8c0712',
+            dark: '#590000',
+            contrastText: '#ffffff',
+        },
+        secondary: {
+            light: '#6b6b6b',
+            main: '#404040',
+            dark: '#1a1a1a',
+            contrastText: '#ffffff',
+        },
     },
 });

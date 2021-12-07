@@ -1,4 +1,3 @@
-// import { useContext } from 'react';
 
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
@@ -11,7 +10,7 @@ export const PublicRoute = ({ children }: { children: JSX.Element }) => {
     console.log(children)
 
     return uid
-        ? <Navigate to="/inicio" />
+        ? <Navigate to="/" />
         : children
 
 }
