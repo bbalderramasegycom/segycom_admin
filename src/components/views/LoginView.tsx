@@ -1,4 +1,4 @@
-import { Button, Chip, Divider, Grid } from "@mui/material";
+import { Button, Chip, Divider, Grid, TextField } from "@mui/material";
 import { useDispatch } from "react-redux"
 import { images } from "../../assets/images";
 import { loginStyles } from "../../styles/views/loginStyles";
@@ -20,16 +20,39 @@ export const LoginView = () => {
     return (
         <>
             <Grid container spacing={0} justifyContent="center" alignItems="center" sx={styles.loginContainer}>
+
                 <Grid container direction="column" justifyContent="center" alignItems="center" sx={styles.loginGrid}> 
-                    <Grid container item xs={8} sx={styles.loginDivider} alignItems="center" >
-                            <img src={logoLogin.img} alt={logoLogin.title} style={styles.imgLogo} />
+                    <Grid container xs={6}  alignItems="center" sx={styles.loginBottom}>
+                            
+                        <img src={logoLogin.img} alt={logoLogin.title} style={styles.imgLogo} />
+                            
                     </Grid>
-                    <Grid item xs={3} >
-                         <Button onClick={handleLogin} variant="contained" sx={styles.btnLogin}>Login </Button>
+                    
+                    <Grid container xs={6} direction="column" justifyContent="center" alignItems="center" >
+                            <Grid item xs={2} sx={styles.loginBottom}> 
+                                    <Divider/>
+                            </Grid>
+                            <Grid item xs={3} sx={styles.loginBottom}> 
+                                <TextField
+                                    id="outlined-required"
+                                    label="Usuario"
+                                    size="small"
+                                />
+                            </Grid>
+                            <Grid item xs={3} sx={styles.loginBottom}> 
+                                <TextField  
+                                    id="outlined-password-input"
+                                    label="Contraseña"
+                                    type="password"
+                                    autoComplete="current-password"
+                                    size="small"
+                                 />
+                            </Grid>
+                            <Grid item xs={4} sx={styles.loginBottom}> 
+                                <Button onClick={handleLogin} fullWidth variant="contained" sx={styles.btnLogin}>Iniciar sesión </Button>
+                            </Grid>
                     </Grid>
                 </Grid>
-                
-
 
 
             </Grid>

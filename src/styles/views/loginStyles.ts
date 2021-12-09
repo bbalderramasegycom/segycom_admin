@@ -6,27 +6,19 @@ export const loginStyles = {
          minHeight:"100vh",
     },
     loginGrid: {
-        width:400,
+        width: 350,
         bgcolor:"#FFFFFF",
-        height:500,
+        height: 450,
         borderRadius: 5,
-        border:  '1px solid rgba(66, 66, 66, .2)',
-        justifyContent: 'center'
-        
+        border:  '1px solid rgba(66, 66, 66, .2)' 
     },
     imgLogo: {
-        width:300,
-        height: '294.01',
-       
+       width: '100%' 
     },
     btnLogin: {
-        bgcolor:"#8c0712",
-        width: 300,
-        
+        bgcolor:"#8c0712",  
     },
-    loginDivider: {
-        borderBottom: '3px solid rgba(66, 66, 66, .4)',
-        width: '80%',
-        marginBottom: 4,
+    loginBottom: {
+        width: '100%'
     }
 }
