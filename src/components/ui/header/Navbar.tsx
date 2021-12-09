@@ -1,4 +1,4 @@
-import { AppBar, Button, IconButton, Toolbar, Tooltip, Typography } from '@mui/material'
+import { AppBar, Avatar, Button, IconButton, Toolbar, Tooltip, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -50,7 +50,7 @@ export const Navbar = () => {
                             aria-label="user"
                             onClick={handleMenuUser}
                             >
-                            <AccountCircleIcon />
+                            <Avatar sx={{ bgcolor: "#424242" }}>B</Avatar>
                         </IconButton>
                     </Tooltip>
                     <IconButton
