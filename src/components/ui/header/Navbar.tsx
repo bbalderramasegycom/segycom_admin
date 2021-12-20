@@ -1,7 +1,6 @@
-import { AppBar, Avatar, Button, IconButton, Toolbar, Tooltip, Typography } from '@mui/material'
+import { AppBar, Avatar, IconButton, Toolbar, Tooltip, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import MenuIcon from '@mui/icons-material/Menu';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../state/actions/authAction';

@@ -3,22 +3,30 @@
 export const loginStyles = {
     loginContainer:{
         bgcolor:"#FAFAFA",
-         minHeight:"100vh",
+        minHeight:"100vh",
     },
     loginGrid: {
-        width: 350,
         bgcolor:"#FFFFFF",
+        width: 350,
         height: 450,
         borderRadius: 5,
-        border:  '1px solid rgba(66, 66, 66, .2)' 
+        border:  '1px solid rgba(66, 66, 66, .2)',
     },
     imgLogo: {
-       width: '100%' 
+       width: '80%',
+    },
+    sizeLoginTop: {
+        height: '50%',
+    },
+    sizeLoginBottom: {
+        height: '50%',
     },
     btnLogin: {
-        bgcolor:"#8c0712",  
+        marginBottom: 2,
+        marginTop: 1
     },
-    loginBottom: {
-        width: '100%'
+    alertError: {
+        marginTop: 1
     }
+
 }
