@@ -2,26 +2,24 @@
 
 export const DashboardStyles = {
     mainBox :{
+        bgcolor: 'FAFAFA',
+        
     },
     quantityBox :{
         height: 100,
         width: '100%',
+        padding: 10
     },
     dashStyles :{
         margin: 1
     },
-    contentBox :{
-        color :'#FFFFFF'
+    sizeIcons :{
+        height: '80%',
+        width: '80%',
     },
-    imageBox :{
-        color :'#FFFFFF'
-    },
-    linkBox :{
-        color :'#FFFFFF'
-    },
+
     tableBox: {
         border : 1,
-        height : 250
     },
     gpsBox: {
         bgcolor:'#00c0ef'
@@ -34,6 +32,10 @@ export const DashboardStyles = {
     },
     stockBox: {
         bgcolor:'#dd4b39'
+    },
+    piebox: {
+        height: 100,
+        bgcolor: 'red'
     }
 
     
