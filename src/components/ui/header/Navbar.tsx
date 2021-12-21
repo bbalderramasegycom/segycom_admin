@@ -1,12 +1,12 @@
-import { AppBar, Avatar, Button, IconButton, Toolbar, Tooltip, Typography } from '@mui/material'
+import { AppBar, Avatar, IconButton, Toolbar, Tooltip, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import MenuIcon from '@mui/icons-material/Menu';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../state/actions/authAction';
 import { useState } from 'react';
 import { MenuItems } from './MenuItems';
+import { menuDrawerOpen } from '../../state/actions/uiAction';
 
 export const Navbar = () => {
 
@@ -26,17 +26,27 @@ export const Navbar = () => {
         setMenuUser(null);
     }
 
+    const handleMenuDrawerOpen = () => {
+        dispatch( menuDrawerOpen() );
+    }
+
     return (
         <>
             <Box sx={{ flexGrow: 1 }}>
-                <AppBar position="static" color="primary">
+                <AppBar  color="primary" position="fixed"
+                    sx={{
+                    width: { xl: `calc(100% - 240px)` },
+                    ml: { xl: `240px` },
+                    }}
+                >
                     <Toolbar>
                     <IconButton
                         size="large"
                         edge="start"
                         color="inherit"
                         aria-label="menu"
-                        sx={{ mr: 2 }}
+                        sx={{ mr: 2, display: { xl: 'none' } }}
+                        onClick={ handleMenuDrawerOpen }
                     >
                         <MenuIcon />
                     </IconButton>
