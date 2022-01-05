@@ -18,7 +18,7 @@ export const DashboardRoutes = () => {
                 
                 <Routes>
                     <Route path="/inicio" element={ <DashboardViwe /> } />
-                    <Route path="/Almacen" element={ <Stock /> } />
+                    <Route path="/almacen" element={ <Stock /> } />
                     <Route path="/" element={ <DashboardViwe /> } />
                 </Routes>
             </Box>

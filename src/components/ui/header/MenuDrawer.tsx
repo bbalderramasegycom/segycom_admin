@@ -47,7 +47,31 @@ export const MenuDrawer = (props: Props) => {
                     </ListItem>
                 </List>
             </Link>
-            <Link to="/">
+            <Link to="/gps">
+                <List>
+                    <ListItem button >
+                        <ListItemIcon>
+                            <InboxIcon />
+                        </ListItemIcon>
+                        <ListItemText>
+                            Gps
+                        </ListItemText>
+                    </ListItem>
+                </List>
+            </Link>
+            <Link to="/telefonia">
+                <List>
+                    <ListItem button >
+                        <ListItemIcon>
+                            <InboxIcon />
+                        </ListItemIcon>
+                        <ListItemText>
+                            Telefonía
+                        </ListItemText>
+                    </ListItem>
+                </List>
+            </Link>
+            <Link to="/almacen">
                 <List>
                     <ListItem button >
                         <ListItemIcon>
