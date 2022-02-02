@@ -12,5 +12,6 @@ export const menuDrawerStyles = {
     menuDrawerPermanent: {
         display: { xs: 'none', xl: 'block' },
         '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 240 },
-    }
+    },
+
 }

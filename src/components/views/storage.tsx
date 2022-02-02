@@ -6,7 +6,6 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { StockStyles } from '../../styles/views/StockStyle';
 import { Button,  Grid, IconButton, TextField, Typography } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
@@ -14,48 +13,52 @@ import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import FeedIcon from '@mui/icons-material/Feed';
 import AddIcon from '@mui/icons-material/Add';
 import ClearIcon from '@mui/icons-material/Clear';
+import { UnitsStyles } from '../../styles/views/UnitsStyles';
 
 function createData(
     id: number,
-    modelo: string,
-    marca: string,
-    categoria: string,
-    descripcion: string,
-    cantidad: number,
-    almacen: number,
-    ubicacion: string,
-    comentario: string,
+    imei: number,
+    nombre: string,
+    cuenta: string,
+    dispositivos: string,
+    telefono: number,
+    fecha: string,
+    plataforma: string,
+    registro: string,
+    estado: boolean,
+    baja: string, 
+
   ) {
-    return {id, modelo, marca, categoria, descripcion, cantidad,almacen, ubicacion, comentario };
+    return {id, imei, nombre, cuenta, dispositivos, telefono, fecha, plataforma, registro, estado, baja};
   }
   
   const rows = [
-    createData(1, 'MODELO ', 'marca', 'categoria', 'descripcion', 4, 1, 'A','comentario sobre almacen '),
-    createData(2, 'MODELO ', 'marca', 'categoria', 'descripcion', 4, 1, 'A','comentario sobre almacen '),
-    createData(3, 'MODELO ', 'marca', 'categoria', 'descripcion', 4, 1, 'A','comentario sobre almacen '),
-    createData(4, 'MODELO ', 'marca', 'categoria', 'descripcion', 4, 1, 'A','comentario sobre almacen '),
-    createData(5, 'MODELO ', 'marca', 'categoria', 'descripcion', 4, 1, 'A','comentario sobre almacen '),
+    createData(1, 54586465, 'nombre', 'cuenta', 'dispositivo', 6145642536, '12/5/2021', 'plataforma', '25/2/2019', true, ''),
+    createData(1, 54586465, 'nombre', 'cuenta', 'dispositivo', 6145642536, '12/5/2021', 'plataforma', '25/2/2019', true, ''),
+    createData(1, 54586465, 'nombre', 'cuenta', 'dispositivo', 6145642536, '12/5/2021', 'plataforma', '25/2/2019', true, ''),
+    createData(1, 54586465, 'nombre', 'cuenta', 'dispositivo', 6145642536, '12/5/2021', 'plataforma', '25/2/2019', true, ''),
+    createData(1, 54586465, 'nombre', 'cuenta', 'dispositivo', 6145642536, '12/5/2021', 'plataforma', '25/2/2019', true, ''),
 
   ];
 
-export const Stock = () => {
+export const Storage = () => {
 
-    const styles= StockStyles;
+    const styles= UnitsStyles;
 
     return (
         
         <>
         <Grid container sx={styles.mainGrid}>
             <Grid container item alignItems="center" xs={12} sx={styles.dashStyles } >
-                <Typography variant="h6">Almacen</Typography>
+                <Typography variant="h6">Unidades</Typography>
                                 
-                <Typography variant="body2">Inventario</Typography>
+                <Typography variant="body2">SEGYCOM</Typography>
             </Grid>
             <Grid item xs={12} >
                 <Paper elevation={3} sx={styles.padTable}>
                     <Grid container item xs={12} >
                         <Grid xs={6} sx={styles.marTable}>  
-                            <Typography variant="h6">Tabla con datos de Almacen</Typography>  
+                            <Typography variant="h6">Tabla con datos de Gps</Typography>  
                         </Grid>
                         <Grid container item direction="row" justifyContent="flex-end" alignItems="center" sx={styles.marTable} xs={6}>
                             <TextField id="standard-basic" label="Buscar" variant="standard" />
@@ -88,14 +91,16 @@ export const Stock = () => {
                             <TableHead>
                             <TableRow>
                                 <TableCell>Id</TableCell>
-                                <TableCell align="right">Modelo</TableCell>
-                                <TableCell align="right">Marca</TableCell>
-                                <TableCell align="right">Categoria</TableCell>
-                                <TableCell align="right">Descripcion </TableCell>
-                                <TableCell align="right">Cantidad </TableCell>
-                                <TableCell align="right">Almacen </TableCell>
-                                <TableCell align="right">Ubicacion </TableCell>
-                                <TableCell align="right">Comentario </TableCell>
+                                <TableCell align="right">IMEI</TableCell>
+                                <TableCell align="right">Nombre</TableCell>
+                                <TableCell align="right">Cuenta</TableCell>
+                                <TableCell align="right">Dispositivo </TableCell>
+                                <TableCell align="right">Telélefono</TableCell>
+                                <TableCell align="right">Fecha Creado </TableCell>
+                                <TableCell align="right">Plataforma </TableCell>
+                                <TableCell align="right">Fecha Registro </TableCell>
+                                <TableCell align="right">Estado </TableCell>
+                                <TableCell align="right">Fecha Baja </TableCell>
                             </TableRow>
                             </TableHead>
                             <TableBody>
@@ -107,14 +112,16 @@ export const Stock = () => {
                                 <TableCell component="th" scope="row">
                                     {row.id}
                                 </TableCell>
-                                <TableCell align="right">{row.modelo}</TableCell>
-                                <TableCell align="right">{row.marca}</TableCell>
-                                <TableCell align="right">{row.categoria}</TableCell>
-                                <TableCell align="right">{row.descripcion}</TableCell>
-                                <TableCell align="right">{row.cantidad}</TableCell>
-                                <TableCell align="right">{row.almacen}</TableCell>
-                                <TableCell align="right">{row.ubicacion}</TableCell>
-                                <TableCell align="right">{row.comentario}</TableCell>
+                                <TableCell align="right">{row.imei}</TableCell>
+                                <TableCell align="right">{row.nombre}</TableCell>
+                                <TableCell align="right">{row.cuenta}</TableCell>
+                                <TableCell align="right">{row.dispositivos}</TableCell>
+                                <TableCell align="right">{row.telefono}</TableCell>
+                                <TableCell align="right">{row.fecha}</TableCell>
+                                <TableCell align="right">{row.plataforma}</TableCell>
+                                <TableCell align="right">{row.registro}</TableCell>
+                                <TableCell align="right">{row.estado}</TableCell>
+                                <TableCell align="right">{row.baja}</TableCell>
                                 </TableRow>
                             ))}
                             </TableBody>
