@@ -1,5 +1,5 @@
 
-export const StockStyles = {
+export const SimsStyles = {
     mainGrid: {
         padding: 1
     },

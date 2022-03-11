@@ -1,5 +1,5 @@
 
-export const StockStyles = {
+export const UnitsStyles = {
     mainGrid: {
         padding: 1
     },
