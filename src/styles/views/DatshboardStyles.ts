@@ -3,12 +3,8 @@
 export const DashboardStyles = {
     mainBox :{
         bgcolor: 'FAFAFA',
+        margin: 1
         
-    },
-    quantityBox :{
-        height: 100,
-        width: '100%',
-        padding: 10
     },
     dashStyles :{
         margin: 1
@@ -19,7 +15,10 @@ export const DashboardStyles = {
     },
 
     tableBox: {
-        border : 1,
+        paddingLeft: 0.5,
+        paddingRight: 0.5,
+        paddingBottom: 5,
+        paddingTop: 2,
     },
     gpsBox: {
         bgcolor:'#00c0ef'
