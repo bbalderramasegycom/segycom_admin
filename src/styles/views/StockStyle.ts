@@ -27,8 +27,6 @@ export const StockStyles = {
     margExcel: {
         margin: 1
     },
-    tablestyles: {
-    },
     btnAddDelete: {    
     },
  

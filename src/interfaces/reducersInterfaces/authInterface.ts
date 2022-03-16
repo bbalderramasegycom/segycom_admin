@@ -11,6 +11,6 @@ export interface AuthState {
 export interface User {
     uid: string,
     displayName: string,
-    logged: boolean,
-    error: boolean,
+    logged?: boolean,
+    error?: boolean,
 }

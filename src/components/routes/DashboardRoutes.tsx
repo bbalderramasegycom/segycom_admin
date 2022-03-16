@@ -2,7 +2,6 @@ import { Route, Routes } from "react-router"
 import { DashboardViwe } from '../views/DashboardViwe';
 import { Navbar } from '../ui/header/Navbar';
 
-import { Box, Toolbar } from "@mui/material";
 import { Stock } from "../views/Stock";
 import { MenuDrawer } from '../ui/header/MenuDrawer';
 import { Container, Toolbar } from "@mui/material";
