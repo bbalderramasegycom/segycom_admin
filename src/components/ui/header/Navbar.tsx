@@ -3,7 +3,7 @@ import { Box } from '@mui/system'
 import MenuIcon from '@mui/icons-material/Menu';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { useDispatch } from 'react-redux';
-import { logout } from '../../state/actions/authAction';
+// import { logout } from '../../state/actions/authAction';
 import { useState } from 'react';
 import { MenuItems } from './MenuItems';
 import { menuDrawerOpen } from '../../state/actions/uiAction';
@@ -14,9 +14,9 @@ export const Navbar = () => {
 
     const [menuUser, setMenuUser] = useState<null | HTMLElement>(null);
     
-    const handleLogout = () => {
-        dispatch( logout() );
-    }
+    // const handleLogout = () => {
+    //     dispatch( logout() );
+    // }
 
     const handleMenuUser = (event: React.MouseEvent<HTMLElement>) => {
         setMenuUser(event.currentTarget);

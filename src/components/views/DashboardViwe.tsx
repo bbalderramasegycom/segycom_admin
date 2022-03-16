@@ -26,6 +26,7 @@ export const DashboardViwe = () => {
                     <Typography variant="body2">SEGYCOM</Typography>
                 </Grid>
                 
+
                 <StatusBox  
                     quantity={5} 
                     title='Atlas de GPS en este mes' 

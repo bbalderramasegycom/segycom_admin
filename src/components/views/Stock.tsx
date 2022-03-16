@@ -7,6 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { StockStyles } from '../../styles/views/StockStyle';
+
 import { Button,  Grid, IconButton, TextField, Typography } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
@@ -22,6 +23,7 @@ function createData(
     categoria: string,
     descripcion: string,
     cantidad: number,
+
     almacen: number,
     ubicacion: string,
     comentario: string,
@@ -36,6 +38,7 @@ function createData(
     createData(4, 'MODELO ', 'marca', 'categoria', 'descripcion', 4, 1, 'A','comentario sobre almacen '),
     createData(5, 'MODELO ', 'marca', 'categoria', 'descripcion', 4, 1, 'A','comentario sobre almacen '),
 
+
   ];
 
 export const Stock = () => {
@@ -45,6 +48,7 @@ export const Stock = () => {
     return (
         
         <>
+
         <Grid container sx={styles.mainGrid}>
             <Grid container item alignItems="center" xs={12} sx={styles.dashStyles } >
                 <Typography variant="h6">Almacen</Typography>
@@ -123,6 +127,7 @@ export const Stock = () => {
                     </Grid>
                 </Paper>
             </Grid>
+
         </Grid> 
         </>
     )

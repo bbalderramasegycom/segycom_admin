@@ -1,5 +1,5 @@
 import { Alert, Button, Divider, Grid} from "@mui/material";
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from 'react-redux';
 import { images } from "../../assets/images";
 import { loginStyles } from "../../styles/views/loginStyles";
 import { useState } from "react";
@@ -7,6 +7,7 @@ import { Field, Form, Formik, FormikProps } from "formik";
 import * as yup from 'yup';
 import { FormTextField } from '../ui/FormTextField';
 import { startLogin } from '../state/actions/authAction';
+import { AuthState } from '../../interfaces/reducersInterfaces/authInterface';
 
 interface FormValues {
     user: string,
@@ -17,7 +18,9 @@ export const LoginView = () => {
 
     const styles = loginStyles;
     const { logoLogin } = images.logos;
-    const [loginError, setLoginError] = useState(false);
+
+    const { error } = useSelector((state: AuthState) => state.auth);
+
     const dispatch = useDispatch();
     
     
@@ -33,8 +36,9 @@ export const LoginView = () => {
             .required('La contraseña es requerida'),
     })
         
-    const handleLogin = () => {
-        dispatch( startLogin() );
+    const handleLogin = (e: FormValues) => {
+
+        dispatch( startLogin( e.user, e.password ) );
     }
 
     return (
@@ -64,7 +68,7 @@ export const LoginView = () => {
                                     <Grid item xs={12} > 
                                         <Field
                                             name="user"
-                                            label="Usuario"
+                                            label="Correo"
                                             size="small"
                                             component={ FormTextField }
                                         />
@@ -78,7 +82,7 @@ export const LoginView = () => {
                                         />
                                     </Grid>
                                     <Grid item xs={12} sx={styles.btnLogin}> 
-                                        <Button type="submit" fullWidth variant="contained">Iniciar sesión </Button>
+                                        <Button type="submit" fullWidth variant="contained">Iniciar sesión</Button>
                                     </Grid>
                                     </Grid>
                                 </Form>
@@ -89,7 +93,7 @@ export const LoginView = () => {
                     
                 </Grid>
                 
-                { loginError &&  <Alert severity="error" sx={ styles.alertError }>Usuario o contraseña incorrectos</Alert> }                  
+                { error &&  <Alert severity="error" sx={ styles.alertError }>Usuario o contraseña incorrectos</Alert> }                  
 
             </Grid>
         </>
