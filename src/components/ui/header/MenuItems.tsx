@@ -1,7 +1,7 @@
 import { Divider, ListItemIcon, Menu, MenuItem, Avatar  } from '@mui/material';
 import Logout from '@mui/icons-material/Logout';
 import { useDispatch } from 'react-redux';
-import { logout } from '../../state/actions/authAction';
+import { startLogout } from '../../state/actions/authAction';
 import { menuItemsStyles } from '../../../styles/ui/header/menuItemsStyles';
 
 
@@ -18,7 +18,7 @@ export const MenuItems = ({anchorEl, open, close}: Props) => {
     const styles = menuItemsStyles;
 
     const handleLogout = () => {
-        dispatch( logout() );
+        dispatch( startLogout() );
     }
 
     return (
