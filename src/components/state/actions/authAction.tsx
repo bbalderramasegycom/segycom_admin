@@ -1,12 +1,13 @@
 import { Dispatch } from 'redux';
-import { fetchSinToken } from '../../../helpers/fetch';
+import { fetchConToken, fetchSinToken } from '../../../helpers/fetch';
 import { types } from '../types/types';
-// import { startLoading, stopLoading } from './uiAction';
 import { User } from '../../../interfaces/reducersInterfaces/authInterface';
 
 export const startLogin = ( email: string, password: string) => {
 
     return async(dispatch: Dispatch) => {
+
+        dispatch( ladingLogin() );
 
         const resp = await fetchSinToken( 'auth/login', { correo: email, password }, 'post'  );
 
@@ -18,31 +19,37 @@ export const startLogin = ( email: string, password: string) => {
         }else{
             dispatch( loginError() );
         }
-
-
     }
 }
 
-// export const startChecking = () => {
-//     return async(dispatch: Dispatch) => {
+export const startChecking = () => {
+    return async(dispatch: Dispatch) => {
 
-//         const resp =  await requestWithToken( 'auth/renew' );
+        const resp =  await fetchConToken( 'auth/renew' );
+
+        console.log(resp)
         
-//         if( resp !== undefined ){
-//             localStorage.setItem( 'token', resp.token );
-//             localStorage.setItem( 'token-init-time', (new Date().getTime()).toString() );
+        if( resp !== undefined ){
+            localStorage.setItem( 'token', resp.token );
+            localStorage.setItem( 'token-init-time', (new Date().getTime()).toString() );
 
-//             dispatch( login({
-//                 uid: resp.uid,
-//                 displayName: resp.nombre
-//             }) );
+            dispatch( login({
+                uid: resp.uid,
+                displayName: resp.nombre
+            }) );
 
-//         }else{
-//             dispatch( errorLogin() );
-//             dispatch( checkingFinish() );
-//         }
-//     }
-// }
+        }else{
+            dispatch( logout() );
+            dispatch( checkingFinish() );
+        }
+    }
+}
+
+const ladingLogin = () => {
+    return {
+        type: types.loading,
+    }
+}
 
 
 const loginError = () => {
@@ -51,7 +58,7 @@ const loginError = () => {
     }
 }
 
-// const checkingFinish = () => ({ type: types.authCheckingFinish });
+const checkingFinish = () => ({ type: types.authCheckingFinish });
 
 const login = ( user: User ) => {
     return {
@@ -68,7 +75,7 @@ export const startLogout = () => {
     }
 }
 
-const logout = () => {
+export const logout = () => {
     return {
         type: types.logout,
     }

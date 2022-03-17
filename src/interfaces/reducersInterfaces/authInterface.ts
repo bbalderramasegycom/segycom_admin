@@ -13,4 +13,6 @@ export interface User {
     displayName: string,
     logged?: boolean,
     error?: boolean,
+    loading?: boolean,
+    checking?: boolean,
 }

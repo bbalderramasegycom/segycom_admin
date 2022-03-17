@@ -6,8 +6,9 @@ import { useState } from "react";
 import { Field, Form, Formik, FormikProps } from "formik";
 import * as yup from 'yup';
 import { FormTextField } from '../ui/FormTextField';
-import { startLogin } from '../state/actions/authAction';
+import { startLogin, logout } from '../state/actions/authAction';
 import { AuthState } from '../../interfaces/reducersInterfaces/authInterface';
+import LoadingButton from '@mui/lab/LoadingButton';
 
 interface FormValues {
     user: string,
@@ -19,7 +20,7 @@ export const LoginView = () => {
     const styles = loginStyles;
     const { logoLogin } = images.logos;
 
-    const { error } = useSelector((state: AuthState) => state.auth);
+    const { error, loading } = useSelector((state: AuthState) => state.auth);
 
     const dispatch = useDispatch();
     
@@ -37,8 +38,13 @@ export const LoginView = () => {
     })
         
     const handleLogin = (e: FormValues) => {
-
         dispatch( startLogin( e.user, e.password ) );
+    }
+
+    const handleChange = () => {
+        
+        dispatch( logout() );
+
     }
 
     return (
@@ -71,6 +77,7 @@ export const LoginView = () => {
                                             label="Correo"
                                             size="small"
                                             component={ FormTextField }
+                                            onFocus ={ handleChange }
                                         />
                                     </Grid>
                                     <Grid item xs={12} > 
@@ -79,10 +86,18 @@ export const LoginView = () => {
                                             label="Contraseña"
                                             size="small"
                                             component={ FormTextField }
+                                            onFocus ={ handleChange }
                                         />
                                     </Grid>
                                     <Grid item xs={12} sx={styles.btnLogin}> 
-                                        <Button type="submit" fullWidth variant="contained">Iniciar sesión</Button>
+                                        {/* <Button type="submit" fullWidth variant="contained">Iniciar sesión</Button> */}
+                                        <LoadingButton
+                                            type="submit" fullWidth variant="contained"
+                                            loading={ loading }
+                                            loadingIndicator="Cargando..."
+                                        >
+                                            Iniciar sesión
+                                        </LoadingButton>
                                     </Grid>
                                     </Grid>
                                 </Form>

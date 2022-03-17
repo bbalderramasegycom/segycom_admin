@@ -39,27 +39,49 @@ const  fetchSinToken = async( endpoint: string, data?: any, method: string = 'ge
 
 }
 
-const fetchConToken = ( endpoint: string, data?: any, method = 'GET') => {
+const fetchConToken = async( endpoint: string, data?: any, method = 'get') => {
 
     const url = `${ baseUrl }/${ endpoint }`;
     const token = localStorage.getItem('token') || '';
 
-    if( method === 'GET' ){
-        return fetch( url, {
-            method,
-            headers: {
-                'x-token': token
-            }
-        } );
+    if( method === 'get' ){
+        try {
+            const res =   await axios({
+                method: 'get',
+                url,
+                headers: {
+                    'x-token': token
+                }
+            })
+
+            return res.data
+            
+        } catch (error ) {
+            console.log(error)
+            
+        }
+       
     }else{
-        return fetch( url, {
-            method,
-            headers: {
-                'Content-type': 'application/json',
-                'x-token': token
-            },
-            body: JSON.stringify( data )
-        });
+        try {
+
+            const res = await axios({
+                method: 'post',
+                url,
+                data,
+                headers: {
+                    'x-token': token
+                }
+            })
+            
+            return res.data;
+
+        } catch (error) {
+            if (axios.isAxiosError(error)) {
+                const err = error as AxiosError;
+                return err.response?.data;
+             }  
+        }
+        
     }
 
 }
@@ -68,3 +90,4 @@ export {
     fetchSinToken,
     fetchConToken
 }
+
