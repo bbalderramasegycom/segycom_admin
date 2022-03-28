@@ -26,8 +26,6 @@ export const startChecking = () => {
     return async(dispatch: Dispatch) => {
 
         const resp =  await fetchConToken( 'auth/renew' );
-
-        console.log(resp)
         
         if( resp !== undefined ){
             localStorage.setItem( 'token', resp.token );

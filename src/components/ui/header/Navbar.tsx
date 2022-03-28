@@ -7,12 +7,16 @@ import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { MenuItems } from './MenuItems';
 import { menuDrawerOpen } from '../../state/actions/uiAction';
+import { images } from "./../../../assets/images";
+import { navbarStyles } from '../../../styles/ui/header/navbarStyles';
 
 export const Navbar = () => {
 
     const dispatch = useDispatch();
 
     const [menuUser, setMenuUser] = useState<null | HTMLElement>(null);
+    const { logoNavbar } = images.logos;
+    const styles = navbarStyles;
     
     // const handleLogout = () => {
     //     dispatch( logout() );
@@ -51,7 +55,8 @@ export const Navbar = () => {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        SEGYCOM Admin
+                        <img src={logoNavbar.img} alt={logoNavbar.title} style={styles.logoNavbar}/>
+
                     </Typography>
                     <Tooltip title="Account settings">
                         <IconButton

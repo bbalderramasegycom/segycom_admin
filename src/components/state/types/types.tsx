@@ -9,4 +9,6 @@ export const types = {
 
     menuDrawerOpen: '[ui] Menu Open',
     menuDrawerClosed: '[ui] Menu Closed',
+
+    almacenGetItems: '[almacen] Get almacen items',
 }

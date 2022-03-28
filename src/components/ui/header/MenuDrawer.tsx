@@ -29,16 +29,18 @@ interface Ui {
 export const MenuDrawer = (props: Props) => {
 
     const [openGps, setOpenGps] = useState(false);
-
     const [openPhone, setOpenPhone] = useState(false);
+    const [selectedIndex, setSelectedIndex] = useState(0);
 
     const boton1 = () => {
+        setOpenPhone(false);
         setOpenGps(!openGps);
     };
 
-      const boton2 = () => {
+    const boton2 = () => {
+        setOpenGps(false);
         setOpenPhone(!openPhone);
-      };
+    };
 
     const styles = menuDrawerStyles;
 
@@ -54,13 +56,27 @@ export const MenuDrawer = (props: Props) => {
         dispatch( menuDrawerClosed() );
     }
 
+    const handleListItemClick = (
+        event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+        index: number,
+    ) => {
+        if(index === 0 || index === 7){
+            setOpenPhone(false);
+            setOpenGps(false);
+        }
+        setSelectedIndex(index);
+        handleMenuDrawerClosed();
+    };
+
     const drawer = (
         <>
             <Toolbar />
             <Divider />
             <Link to="/inicio" style={{ textDecoration: 'none' , color: 'inherit' }}>
                 <List >
-                    <ListItem button >
+                    <ListItem button 
+                     selected={selectedIndex === 0}
+                     onClick={(event) => handleListItemClick(event, 0)}>
                         <ListItemIcon>
                             <PieChartIcon />
                         </ListItemIcon>
@@ -84,7 +100,10 @@ export const MenuDrawer = (props: Props) => {
                         <Link to="/unidades" style={{ textDecoration: 'none' , color: 'inherit' }}>
                         <Collapse in={openGps} timeout="auto" unmountOnExit>
                             <List component="div" disablePadding>
-                            <ListItemButton sx={{ pl: 4 }}>
+                            <ListItemButton sx={{ pl: 4 }} 
+                                selected={selectedIndex === 1}
+                                onClick={(event) => handleListItemClick(event, 1)}
+                            >
                                 <ListItemIcon>
                                 <DirectionsCarIcon />
                                 </ListItemIcon>
@@ -96,7 +115,10 @@ export const MenuDrawer = (props: Props) => {
                         <Link to="/cuentas" style={{ textDecoration: 'none' , color: 'inherit' }}>
                     <Collapse in={openGps} timeout="auto" unmountOnExit>
                         <List component="div" disablePadding>
-                        <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemButton sx={{ pl: 4 }}
+                            selected={selectedIndex === 2}
+                            onClick={(event) => handleListItemClick(event, 2)}
+                        >
                             <ListItemIcon>
                             <PeopleAltIcon />
                             </ListItemIcon>
@@ -108,7 +130,10 @@ export const MenuDrawer = (props: Props) => {
                     <Link to="/subcuentas" style={{ textDecoration: 'none' , color: 'inherit' }}>
                     <Collapse in={openGps} timeout="auto" unmountOnExit>
                         <List component="div" disablePadding>
-                        <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemButton sx={{ pl: 4 }}
+                            selected={selectedIndex === 3}
+                            onClick={(event) => handleListItemClick(event, 3)}
+                        >
                             <ListItemIcon>
                             <PeopleIcon />
                             </ListItemIcon>
@@ -120,7 +145,10 @@ export const MenuDrawer = (props: Props) => {
                     <Link to="/dispositivos" style={{ textDecoration: 'none' , color: 'inherit' }}>
                     <Collapse in={openGps} timeout="auto" unmountOnExit>
                         <List component="div" disablePadding>
-                        <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemButton sx={{ pl: 4 }}
+                            selected={selectedIndex === 4}
+                            onClick={(event) => handleListItemClick(event, 4)}
+                        >
                             <ListItemIcon>
                             <PhoneIphoneIcon />
                             </ListItemIcon>
@@ -143,7 +171,10 @@ export const MenuDrawer = (props: Props) => {
                         <Link to="/sims" style={{ textDecoration: 'none' , color: 'inherit' }}>
                         <Collapse in={openPhone} timeout="auto" unmountOnExit>
                             <List component="div" disablePadding>
-                            <ListItemButton sx={{ pl: 4 }}>
+                            <ListItemButton sx={{ pl: 4 }}
+                                selected={selectedIndex === 5}
+                                onClick={(event) => handleListItemClick(event, 5)}
+                            >
                                 <ListItemIcon>
                                 <ContactPhoneIcon />
                                 </ListItemIcon>
@@ -155,7 +186,10 @@ export const MenuDrawer = (props: Props) => {
                         <Link to="/cuentaspadre" style={{ textDecoration: 'none' , color: 'inherit' }}>
                     <Collapse in={openPhone} timeout="auto" unmountOnExit>
                         <List component="div" disablePadding>
-                        <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemButton sx={{ pl: 4 }}
+                            selected={selectedIndex === 6}
+                            onClick={(event) => handleListItemClick(event, 6)}
+                        >
                             <ListItemIcon>
                             <AccountTreeIcon />
                             </ListItemIcon>
@@ -167,7 +201,10 @@ export const MenuDrawer = (props: Props) => {
                 </List>
                 <List>
                 <Link to="/almacen" style={{ textDecoration: 'none' , color: 'inherit' }}>
-                        <ListItem button >
+                        <ListItem button 
+                            selected={selectedIndex === 7}
+                            onClick={(event) => handleListItemClick(event, 7)}
+                        >
                             <ListItemIcon>
                                 <Inventory2Icon />
                             </ListItemIcon>
